@@ -139,6 +139,18 @@ const comicPanels = Array.from({ length: 13 }, (_, i) => ({
   alt: `Khung truyện ${i + 1}`
 }));
 
+// ===== ПРЕДЗАГРУЗКА КАРТИНОК КОМИКСА =====
+function preloadComicImages() {
+  comicPanels.forEach((panel, index) => {
+    const img = new Image();
+    img.src = panel.image;
+    // Для отладки (можно удалить потом)
+    img.onload = () => console.log(`✅ Загружена картинка ${index + 1}`);
+    img.onerror = () => console.log(`❌ Ошибка загрузки ${index + 1}`);
+  });
+  console.log('🎬 Начата предзагрузка всех картинок комикса');
+}
+
 const finalComicPanels = Array.from({ length: 11 }, (_, i) => ({
   image: `assets/final-comic/${i + 1}.jpg`,
   alt: `Khung truyện cuối cùng ${i + 1}`
@@ -436,6 +448,11 @@ continueButton.addEventListener("click", () => {
   currentPanel = 0;
   currentComicSoundGroup = null;
   stopComicSounds();
+  // 👇 ЭТУ СТРОЧКУ ДОБАВИТЬ
+  preloadComicImages();
+  
+  showComicPanel(false);
+  playPanelSound(0);
   showComicPanel(false);
   playPanelSound(0);
 });
