@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dành cho em 💗</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Видеофон -->
+  <video
+    class="background-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+  >
+    <source src="assets/video.mp4" type="video/mp4" />
+  </video>
+
+  <div class="overlay" aria-hidden="true"></div>
+
+  <!-- ===== АУДИО ===== -->
+  <!-- Основная музыка -->
+  <audio id="music" loop preload="auto">
+    <source src="assets/music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <audio id="comicNight" loop preload="auto">
+    <source src="assets/audio/comic-night.mp3" type="audio/mpeg" />
+  </audio>
+
+  <audio id="mysticMusic" loop preload="auto">
+    <source src="assets/audio/mystic.mp3" type="audio/mpeg" />
+  </audio>
+
+  <audio id="typingSound" loop preload="auto">
+    <source src="assets/audio/typing.mp3" type="audio/mpeg" />
+  </audio>
+
+  <audio id="knockSound" preload="auto">
+    <source src="assets/audio/knock.mp3" type="audio/mpeg" />
+  </audio>
+
+  <audio id="scaredCatSound" preload="auto">
+    <source src="assets/audio/scared-cat.mp3" type="audio/mpeg" />
+  </audio>
+
+  <audio id="oldWhisperSound" preload="auto">
+    <source src="assets/audio/old-whisper.mp3" type="audio/mpeg" />
+  </audio>
+
+  <audio id="appearSound" preload="auto">
+    <source src="assets/audio/appear.mp3" type="audio/mpeg" />
+  </audio>
+
+  <audio id="witchLaughSound" preload="auto">
+    <source src="assets/audio/witch-laugh.mp3" type="audio/mpeg" />
+  </audio>
+
+  <audio id="spellSound" preload="auto">
+    <source src="assets/audio/spell.mp3" type="audio/mpeg" />
+  </audio>
+
+  <audio id="phoneFallSound" preload="auto">
+    <source src="assets/audio/phone-fall.mp3" type="audio/mpeg" />
+  </audio>
+
+  <audio id="cricketsSound" loop preload="auto">
+    <source src="assets/audio/crickets.mp3" type="audio/mpeg" />
+  </audio>
+
+  <audio id="catMeowSound" preload="auto">
+    <source src="assets/audio/cat-meow.mp3" type="audio/mpeg" />
+  </audio>
+
+  <audio id="chatMusic" loop preload="auto">
+    <source src="assets/audio/chat-music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <audio id="messageSendSound" preload="auto">
+    <source src="assets/audio/message-send.mp3" type="audio/mpeg" />
+  </audio>
+
+  <audio id="messageReceiveSound" preload="auto">
+    <source src="assets/audio/message-receive.mp3" type="audio/mpeg" />
+  </audio>
+
+  <audio id="grandFinalAudio" loop preload="auto">
+    <source src="assets/grand-final.mp3" type="audio/mpeg" />
+  </audio>
+
+  <audio id="celebrationMusic" loop>
+    <source src="assets/music/celebration.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- ===== ПАРЯЩИЕ СЕРДЦА ===== -->
+  <div class="heart heart-1">♡</div>
+  <div class="heart heart-2">♥</div>
+  <div class="heart heart-3">♡</div>
+  <div class="heart heart-4">♥</div>
+
+  <!-- ===== СТАРТОВЫЙ ЭКРАН ===== -->
+  <main class="start-screen" id="startScreen">
+    <div class="start-content">
+      <button class="start-button" id="startButton" type="button">
+        <span class="shine"></span>
+        <span class="button-text">Nhấn em đi</span>
+        <span class="cat">ฅ^•ﻌ•^ฅ</span>
+      </button>
+      <p class="music-hint" id="musicHint">Điều này dành cho em 🌸</p>
+    </div>
+  </main>
+
+  <!-- ===== ЭКРАН ВОПРОСОВ ===== -->
+  <section class="quest-screen" id="questScreen">
+    <div class="quest-card">
+      <img
+        class="character"
+        id="character"
+        src="assets/characters/normal.png"
+        alt="Nhân vật"
+      />
+
+      <div class="dialogue" id="dialogue">
+        Xin chào, Quỳnh Anh! 💗 Hôm nay em sẽ có một cuộc phiêu lưu nhỏ ✨
+        mà anh đã chuẩn bị đặc biệt cho em 🥰 Nhưng trước hết, em cần trả
+        lời một vài câu hỏi đơn giản nhé 💭 Em sẵn sàng chưa? 🌸
+      </div>
+
+      <div class="answer-buttons" id="readyAnswers">
+        <button class="answer-button" id="yesButton" type="button">
+          Sẵn sàng rồi! 💗
+        </button>
+        <button class="answer-button" id="noButton" type="button">
+          Em sợ 🙈
+        </button>
+      </div>
+
+      <div class="answer-buttons hidden" id="questionAnswers"></div>
+
+      <button class="next-question-button hidden" id="nextQuestionButton" type="button">
+        Tiếp tục ✨
+      </button>
+    </div>
+  </section>
+
+  <!-- ===== ЭКРАН АНАЛИЗА ===== -->
+  <section class="analysis-screen" id="analysisScreen">
+    <div class="analysis-card">
+      <div class="analysis-heart">💗</div>
+      <h1>Đang phân tích câu trả lời...</h1>
+      <div class="loading-line"><span></span></div>
+      <p>Anh đang xem những câu trả lời đáng yêu của em ✨</p>
+    </div>
+  </section>
+
+  <!-- ===== ЭКРАН РЕЗУЛЬТАТОВ ===== -->
+  <section class="result-screen" id="resultScreen">
+    <div class="result-card">
+      <div class="result-heart">💌</div>
+      <h1>Kết quả đã sẵn sàng!</h1>
+      <p>
+        Qua những câu trả lời của em... anh nghĩ em là một người rất đáng
+        yêu, dịu dàng và đặc biệt 💗
+      </p>
+      <button class="result-button" id="continueButton" type="button">
+        Tiếp tục ✨
+      </button>
+    </div>
+  </section>
+
+  <!-- ===== ОСНОВНОЙ КОМИКС ===== -->
+  <section class="comic-screen" id="comicScreen">
+    <div class="comic-container">
+      <div class="comic-topbar">
+        <button class="comic-back-button" id="comicBackButton" type="button">
+          ← Quay lại
+        </button>
+        <div class="comic-counter" id="comicCounter">1 / 13</div>
+        <button class="comic-sound-button" id="comicSoundButton" type="button">
+          ♫
+        </button>
+      </div>
+
+      <div class="comic-frame" id="comicFrame" role="button" tabindex="0">
+        <img
+          class="comic-image"
+          id="comicImage"
+          src="assets/comic/1.jpg"
+          alt="Khung truyện 1"
+        />
+        <div class="comic-click-hint" id="comicHint">Nhấn để tiếp tục ✨</div>
+      </div>
+
+      <p class="comic-instruction">Nhấn vào ảnh để xem tiếp</p>
+    </div>
+  </section>
+
+  <!-- ===== ЧАТ ===== -->
+  <section class="chat-screen" id="chatScreen">
+    <div class="phone">
+      <div class="phone-speaker"></div>
+
+      <header class="chat-header">
+        <img
+          class="chat-header-avatar"
+          src="assets/characters/mosquito.png"
+          alt="Alex"
+        />
+        <div>
+          <strong>Alex</strong>
+          <span>Đang hoạt động</span>
+        </div>
+      </header>
+
+      <div class="chat-messages" id="chatMessages"></div>
+      <div class="chat-options" id="chatOptions"></div>
+      <div class="chat-input-fake">
+        <span>Nhắn tin...</span>
+        <span class="send-icon">➤</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 50 ДОСТОИНСТВ ===== -->
+  <section class="confidence-screen" id="confidenceScreen">
+    <div class="confidence-window">
+      <div class="confidence-header">
+        <div class="profile-main-info">
+          <img
+            class="confidence-avatar"
+            src="assets/characters/girl-avatar.png"
+            alt="Nguyễn Quỳnh Anh"
+          />
+          <div class="profile-text">
+            <h1>Nguyễn Quỳnh Anh</h1>
+            <p>16 tuổi</p>
+            <p>Hải Phòng</p>
+          </div>
+        </div>
+
+        <div class="confidence-progress">
+          <strong id="confidenceCount">0 / 50</strong>
+          <span>Điều đặc biệt về em 💗</span>
+        </div>
+      </div>
+
+      <div class="confidence-intro">
+        <h2>50 tài năng của em</h2>
+      </div>
+
+      <div class="confidence-grid" id="confidenceGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===== МОДАЛКА ДОСТОИНСТВ ===== -->
+  <div class="confidence-modal" id="confidenceModal" aria-hidden="true">
+    <div class="confidence-modal-card">
+      <button
+        class="confidence-modal-close"
+        id="confidenceModalClose"
+        type="button"
+        aria-label="Đóng"
+      >
+        ×
+      </button>
+      <div class="confidence-modal-number" id="confidenceModalNumber">1</div>
+      <h2>Điều tuyệt vời về em</h2>
+      <p id="confidenceModalText"></p>
+      <button
+        class="confidence-confirm-button"
+        id="confidenceConfirmButton"
+        type="button"
+      >
+        Đúng, điều này là về em 💗
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== ФИНАЛЬНЫЙ КОМИКС ===== -->
+  <!-- ===== ФИНАЛЬНЫЙ КОМИКС (как первый) ===== -->
+<section class="final-screen" id="finalScreen">
+  <div class="final-comic-container">
+    <div class="final-comic-topbar">
+      <button class="final-comic-back-button" id="finalComicBackButton" type="button">
+        ← Quay lại
+      </button>
+      <div class="final-comic-counter" id="finalComicCounter">1 / 11</div>
+      <button class="final-comic-sound-button" id="finalComicSoundButton" type="button">
+        ♫
+      </button>
+    </div>
+
+    <div class="final-comic-frame" id="finalComicFrame" role="button" tabindex="0">
+      <img
+        class="final-comic-image"
+        id="finalComicImage"
+        src="assets/final-comic/01.jpg"
+        alt="Khung truyện cuối cùng 1"
+      />
+      <div class="final-comic-hint" id="finalComicHint">Nhấn để tiếp tục ✨</div>
+    </div>
+
+    <p class="final-comic-instruction">Nhấn vào ảnh để xem tiếp</p>
+  </div>
+</section>
+
+  <!-- ===== ФИНАЛЬНЫЙ СЮРПРИЗ (генерируется JS) ===== -->
+
+  <script src="script.js"></script>
+</body>
+</html>
